@@ -94,10 +94,6 @@
 			this.SkillPercent_B = new System.Windows.Forms.NumericUpDown();
 			this.SkillPercent_A = new System.Windows.Forms.NumericUpDown();
 			this.label14 = new System.Windows.Forms.Label();
-			this.ClassCoef_C = new System.Windows.Forms.NumericUpDown();
-			this.ClassCoef_B = new System.Windows.Forms.NumericUpDown();
-			this.ClassCoef_A = new System.Windows.Forms.NumericUpDown();
-			this.label13 = new System.Windows.Forms.Label();
 			this.DmgTotalBonus_C = new System.Windows.Forms.NumericUpDown();
 			this.DmgTotalBonus_B = new System.Windows.Forms.NumericUpDown();
 			this.DmgTotalBonus_A = new System.Windows.Forms.NumericUpDown();
@@ -149,6 +145,7 @@
 			this.CrowCoef_C = new System.Windows.Forms.NumericUpDown();
 			this.CrowCoef_B = new System.Windows.Forms.NumericUpDown();
 			this.CrowCoef_A = new System.Windows.Forms.NumericUpDown();
+			this.Calculate_Button = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -156,9 +153,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_C)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_B)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_A)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_C)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_B)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_A)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_C)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_B)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_A)).BeginInit();
@@ -233,7 +227,7 @@
 			this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.newToolStripMenuItem.Name = "newToolStripMenuItem";
 			this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+			this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newToolStripMenuItem.Text = "&New";
 			// 
 			// openToolStripMenuItem
@@ -474,6 +468,7 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel1.Controls.Add(this.Calculate_Button);
 			this.panel1.Controls.Add(this.ResultTablePanel);
 			this.panel1.Controls.Add(this.label21);
 			this.panel1.Controls.Add(this.label20);
@@ -486,10 +481,6 @@
 			this.panel1.Controls.Add(this.SkillPercent_B);
 			this.panel1.Controls.Add(this.SkillPercent_A);
 			this.panel1.Controls.Add(this.label14);
-			this.panel1.Controls.Add(this.ClassCoef_C);
-			this.panel1.Controls.Add(this.ClassCoef_B);
-			this.panel1.Controls.Add(this.ClassCoef_A);
-			this.panel1.Controls.Add(this.label13);
 			this.panel1.Controls.Add(this.DmgTotalBonus_C);
 			this.panel1.Controls.Add(this.DmgTotalBonus_B);
 			this.panel1.Controls.Add(this.DmgTotalBonus_A);
@@ -545,11 +536,10 @@
 			this.panel1.Location = new System.Drawing.Point(0, 49);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(633, 591);
-			this.panel1.TabIndex = 2;
+			this.panel1.TabIndex = 999;
 			// 
 			// ResultTablePanel
 			// 
-			this.ResultTablePanel.BackColor = System.Drawing.SystemColors.Control;
 			this.ResultTablePanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
 			this.ResultTablePanel.ColumnCount = 3;
 			this.ResultTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.27759F));
@@ -573,7 +563,7 @@
 			this.ResultTablePanel.Controls.Add(this.MinDmgResultC, 2, 0);
 			this.ResultTablePanel.Controls.Add(this.MinDmgResultB, 1, 0);
 			this.ResultTablePanel.Controls.Add(this.MinDmgResultA, 0, 0);
-			this.ResultTablePanel.Location = new System.Drawing.Point(224, 441);
+			this.ResultTablePanel.Location = new System.Drawing.Point(224, 436);
 			this.ResultTablePanel.Name = "ResultTablePanel";
 			this.ResultTablePanel.RowCount = 6;
 			this.ResultTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -593,7 +583,7 @@
 			this.DmgPerAtckResultC.Name = "DmgPerAtckResultC";
 			this.DmgPerAtckResultC.Size = new System.Drawing.Size(103, 22);
 			this.DmgPerAtckResultC.TabIndex = 17;
-			this.DmgPerAtckResultC.Text = "label38";
+			this.DmgPerAtckResultC.Text = "000.000";
 			this.DmgPerAtckResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// DmgPerAtckResultB
@@ -604,7 +594,7 @@
 			this.DmgPerAtckResultB.Name = "DmgPerAtckResultB";
 			this.DmgPerAtckResultB.Size = new System.Drawing.Size(102, 22);
 			this.DmgPerAtckResultB.TabIndex = 16;
-			this.DmgPerAtckResultB.Text = "label37";
+			this.DmgPerAtckResultB.Text = "000.000";
 			this.DmgPerAtckResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// DmgPerAtckResultA
@@ -615,7 +605,7 @@
 			this.DmgPerAtckResultA.Name = "DmgPerAtckResultA";
 			this.DmgPerAtckResultA.Size = new System.Drawing.Size(102, 22);
 			this.DmgPerAtckResultA.TabIndex = 15;
-			this.DmgPerAtckResultA.Text = "label36";
+			this.DmgPerAtckResultA.Text = "000.000";
 			this.DmgPerAtckResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxCritDmgResultC
@@ -626,7 +616,7 @@
 			this.MaxCritDmgResultC.Name = "MaxCritDmgResultC";
 			this.MaxCritDmgResultC.Size = new System.Drawing.Size(103, 20);
 			this.MaxCritDmgResultC.TabIndex = 14;
-			this.MaxCritDmgResultC.Text = "label35";
+			this.MaxCritDmgResultC.Text = "000.000";
 			this.MaxCritDmgResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxCritDmgResultB
@@ -637,7 +627,7 @@
 			this.MaxCritDmgResultB.Name = "MaxCritDmgResultB";
 			this.MaxCritDmgResultB.Size = new System.Drawing.Size(102, 20);
 			this.MaxCritDmgResultB.TabIndex = 13;
-			this.MaxCritDmgResultB.Text = "label34";
+			this.MaxCritDmgResultB.Text = "000.000";
 			this.MaxCritDmgResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxCritDmgResultA
@@ -648,7 +638,7 @@
 			this.MaxCritDmgResultA.Name = "MaxCritDmgResultA";
 			this.MaxCritDmgResultA.Size = new System.Drawing.Size(102, 20);
 			this.MaxCritDmgResultA.TabIndex = 12;
-			this.MaxCritDmgResultA.Text = "label33";
+			this.MaxCritDmgResultA.Text = "000.000";
 			this.MaxCritDmgResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgCritDmgResultC
@@ -659,7 +649,7 @@
 			this.AvgCritDmgResultC.Name = "AvgCritDmgResultC";
 			this.AvgCritDmgResultC.Size = new System.Drawing.Size(103, 20);
 			this.AvgCritDmgResultC.TabIndex = 11;
-			this.AvgCritDmgResultC.Text = "label32";
+			this.AvgCritDmgResultC.Text = "000.000";
 			this.AvgCritDmgResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgCritDmgResultB
@@ -670,7 +660,7 @@
 			this.AvgCritDmgResultB.Name = "AvgCritDmgResultB";
 			this.AvgCritDmgResultB.Size = new System.Drawing.Size(102, 20);
 			this.AvgCritDmgResultB.TabIndex = 10;
-			this.AvgCritDmgResultB.Text = "label31";
+			this.AvgCritDmgResultB.Text = "000.000";
 			this.AvgCritDmgResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgCritDmgResultA
@@ -681,7 +671,7 @@
 			this.AvgCritDmgResultA.Name = "AvgCritDmgResultA";
 			this.AvgCritDmgResultA.Size = new System.Drawing.Size(102, 20);
 			this.AvgCritDmgResultA.TabIndex = 9;
-			this.AvgCritDmgResultA.Text = "label30";
+			this.AvgCritDmgResultA.Text = "000.000";
 			this.AvgCritDmgResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgDmgResultC
@@ -692,7 +682,7 @@
 			this.AvgDmgResultC.Name = "AvgDmgResultC";
 			this.AvgDmgResultC.Size = new System.Drawing.Size(103, 20);
 			this.AvgDmgResultC.TabIndex = 8;
-			this.AvgDmgResultC.Text = "label29";
+			this.AvgDmgResultC.Text = "000.000";
 			this.AvgDmgResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgDmgResultB
@@ -703,7 +693,7 @@
 			this.AvgDmgResultB.Name = "AvgDmgResultB";
 			this.AvgDmgResultB.Size = new System.Drawing.Size(102, 20);
 			this.AvgDmgResultB.TabIndex = 7;
-			this.AvgDmgResultB.Text = "label28";
+			this.AvgDmgResultB.Text = "000.000";
 			this.AvgDmgResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AvgDmgResultA
@@ -714,7 +704,7 @@
 			this.AvgDmgResultA.Name = "AvgDmgResultA";
 			this.AvgDmgResultA.Size = new System.Drawing.Size(102, 20);
 			this.AvgDmgResultA.TabIndex = 6;
-			this.AvgDmgResultA.Text = "label27";
+			this.AvgDmgResultA.Text = "000.000";
 			this.AvgDmgResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxDmgResultC
@@ -725,7 +715,7 @@
 			this.MaxDmgResultC.Name = "MaxDmgResultC";
 			this.MaxDmgResultC.Size = new System.Drawing.Size(103, 20);
 			this.MaxDmgResultC.TabIndex = 5;
-			this.MaxDmgResultC.Text = "label26";
+			this.MaxDmgResultC.Text = "000.000";
 			this.MaxDmgResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxDmgResultB
@@ -736,7 +726,7 @@
 			this.MaxDmgResultB.Name = "MaxDmgResultB";
 			this.MaxDmgResultB.Size = new System.Drawing.Size(102, 20);
 			this.MaxDmgResultB.TabIndex = 4;
-			this.MaxDmgResultB.Text = "label25";
+			this.MaxDmgResultB.Text = "000.000";
 			this.MaxDmgResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MaxDmgResultA
@@ -747,7 +737,7 @@
 			this.MaxDmgResultA.Name = "MaxDmgResultA";
 			this.MaxDmgResultA.Size = new System.Drawing.Size(102, 20);
 			this.MaxDmgResultA.TabIndex = 3;
-			this.MaxDmgResultA.Text = "label24";
+			this.MaxDmgResultA.Text = "000.000";
 			this.MaxDmgResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MinDmgResultC
@@ -758,7 +748,7 @@
 			this.MinDmgResultC.Name = "MinDmgResultC";
 			this.MinDmgResultC.Size = new System.Drawing.Size(103, 20);
 			this.MinDmgResultC.TabIndex = 2;
-			this.MinDmgResultC.Text = "label23";
+			this.MinDmgResultC.Text = "000.000";
 			this.MinDmgResultC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MinDmgResultB
@@ -769,7 +759,7 @@
 			this.MinDmgResultB.Name = "MinDmgResultB";
 			this.MinDmgResultB.Size = new System.Drawing.Size(102, 20);
 			this.MinDmgResultB.TabIndex = 1;
-			this.MinDmgResultB.Text = "label22";
+			this.MinDmgResultB.Text = "000.000";
 			this.MinDmgResultB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MinDmgResultA
@@ -780,14 +770,14 @@
 			this.MinDmgResultA.Name = "MinDmgResultA";
 			this.MinDmgResultA.Size = new System.Drawing.Size(102, 20);
 			this.MinDmgResultA.TabIndex = 0;
-			this.MinDmgResultA.Text = "label22";
+			this.MinDmgResultA.Text = "000.000";
 			this.MinDmgResultA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label21
 			// 
 			this.label21.AutoSize = true;
 			this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label21.Location = new System.Drawing.Point(93, 419);
+			this.label21.Location = new System.Drawing.Point(93, 414);
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(106, 13);
 			this.label21.TabIndex = 133;
@@ -796,7 +786,7 @@
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(100, 566);
+			this.label20.Location = new System.Drawing.Point(100, 561);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(99, 13);
 			this.label20.TabIndex = 132;
@@ -805,7 +795,7 @@
 			// label19
 			// 
 			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(95, 541);
+			this.label19.Location = new System.Drawing.Point(95, 536);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(104, 13);
 			this.label19.TabIndex = 131;
@@ -814,7 +804,7 @@
 			// label18
 			// 
 			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(75, 516);
+			this.label18.Location = new System.Drawing.Point(75, 511);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(124, 13);
 			this.label18.TabIndex = 130;
@@ -823,7 +813,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(109, 491);
+			this.label17.Location = new System.Drawing.Point(109, 486);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(90, 13);
 			this.label17.TabIndex = 129;
@@ -832,7 +822,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(129, 466);
+			this.label16.Location = new System.Drawing.Point(129, 461);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(70, 13);
 			this.label16.TabIndex = 128;
@@ -841,7 +831,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(132, 441);
+			this.label15.Location = new System.Drawing.Point(132, 436);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(67, 13);
 			this.label15.TabIndex = 127;
@@ -849,12 +839,13 @@
 			// 
 			// SkillPercent_C
 			// 
+			this.SkillPercent_C.DecimalPlaces = 5;
 			this.SkillPercent_C.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this.SkillPercent_C.Location = new System.Drawing.Point(462, 372);
+			this.SkillPercent_C.Location = new System.Drawing.Point(462, 347);
 			this.SkillPercent_C.Maximum = new decimal(new int[] {
             1,
             0,
@@ -863,15 +854,17 @@
 			this.SkillPercent_C.Name = "SkillPercent_C";
 			this.SkillPercent_C.Size = new System.Drawing.Size(84, 20);
 			this.SkillPercent_C.TabIndex = 126;
+			this.SkillPercent_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// SkillPercent_B
 			// 
+			this.SkillPercent_B.DecimalPlaces = 5;
 			this.SkillPercent_B.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this.SkillPercent_B.Location = new System.Drawing.Point(349, 372);
+			this.SkillPercent_B.Location = new System.Drawing.Point(349, 347);
 			this.SkillPercent_B.Maximum = new decimal(new int[] {
             1,
             0,
@@ -880,15 +873,17 @@
 			this.SkillPercent_B.Name = "SkillPercent_B";
 			this.SkillPercent_B.Size = new System.Drawing.Size(84, 20);
 			this.SkillPercent_B.TabIndex = 125;
+			this.SkillPercent_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// SkillPercent_A
 			// 
+			this.SkillPercent_A.DecimalPlaces = 5;
 			this.SkillPercent_A.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this.SkillPercent_A.Location = new System.Drawing.Point(235, 372);
+			this.SkillPercent_A.Location = new System.Drawing.Point(235, 347);
 			this.SkillPercent_A.Maximum = new decimal(new int[] {
             1,
             0,
@@ -896,67 +891,46 @@
             0});
 			this.SkillPercent_A.Name = "SkillPercent_A";
 			this.SkillPercent_A.Size = new System.Drawing.Size(85, 20);
-			this.SkillPercent_A.TabIndex = 124;
+			this.SkillPercent_A.TabIndex = 11;
+			this.SkillPercent_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.SkillPercent_A.Enter += new System.EventHandler(this.SkillPercent_A_Enter);
 			// 
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(133, 376);
+			this.label14.Location = new System.Drawing.Point(133, 351);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(66, 13);
 			this.label14.TabIndex = 123;
 			this.label14.Text = "Skill Percent";
 			// 
-			// ClassCoef_C
-			// 
-			this.ClassCoef_C.Location = new System.Drawing.Point(462, 346);
-			this.ClassCoef_C.Name = "ClassCoef_C";
-			this.ClassCoef_C.Size = new System.Drawing.Size(84, 20);
-			this.ClassCoef_C.TabIndex = 122;
-			// 
-			// ClassCoef_B
-			// 
-			this.ClassCoef_B.Location = new System.Drawing.Point(349, 346);
-			this.ClassCoef_B.Name = "ClassCoef_B";
-			this.ClassCoef_B.Size = new System.Drawing.Size(84, 20);
-			this.ClassCoef_B.TabIndex = 121;
-			// 
-			// ClassCoef_A
-			// 
-			this.ClassCoef_A.Location = new System.Drawing.Point(235, 346);
-			this.ClassCoef_A.Name = "ClassCoef_A";
-			this.ClassCoef_A.Size = new System.Drawing.Size(85, 20);
-			this.ClassCoef_A.TabIndex = 120;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(114, 350);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(85, 13);
-			this.label13.TabIndex = 119;
-			this.label13.Text = "Class Coefficient";
-			// 
 			// DmgTotalBonus_C
 			// 
+			this.DmgTotalBonus_C.DecimalPlaces = 5;
 			this.DmgTotalBonus_C.Location = new System.Drawing.Point(462, 320);
 			this.DmgTotalBonus_C.Name = "DmgTotalBonus_C";
 			this.DmgTotalBonus_C.Size = new System.Drawing.Size(84, 20);
 			this.DmgTotalBonus_C.TabIndex = 118;
+			this.DmgTotalBonus_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// DmgTotalBonus_B
 			// 
+			this.DmgTotalBonus_B.DecimalPlaces = 5;
 			this.DmgTotalBonus_B.Location = new System.Drawing.Point(348, 320);
 			this.DmgTotalBonus_B.Name = "DmgTotalBonus_B";
 			this.DmgTotalBonus_B.Size = new System.Drawing.Size(84, 20);
 			this.DmgTotalBonus_B.TabIndex = 117;
+			this.DmgTotalBonus_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// DmgTotalBonus_A
 			// 
+			this.DmgTotalBonus_A.DecimalPlaces = 5;
 			this.DmgTotalBonus_A.Location = new System.Drawing.Point(235, 320);
 			this.DmgTotalBonus_A.Name = "DmgTotalBonus_A";
 			this.DmgTotalBonus_A.Size = new System.Drawing.Size(85, 20);
-			this.DmgTotalBonus_A.TabIndex = 116;
+			this.DmgTotalBonus_A.TabIndex = 10;
+			this.DmgTotalBonus_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.DmgTotalBonus_A.Enter += new System.EventHandler(this.DmgTotalBonus_A_Enter);
 			// 
 			// label12
 			// 
@@ -969,6 +943,7 @@
 			// 
 			// BonusBossDmg_C
 			// 
+			this.BonusBossDmg_C.DecimalPlaces = 5;
 			this.BonusBossDmg_C.Increment = new decimal(new int[] {
             1,
             0,
@@ -983,9 +958,11 @@
 			this.BonusBossDmg_C.Name = "BonusBossDmg_C";
 			this.BonusBossDmg_C.Size = new System.Drawing.Size(84, 20);
 			this.BonusBossDmg_C.TabIndex = 114;
+			this.BonusBossDmg_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BonusBossDmg_B
 			// 
+			this.BonusBossDmg_B.DecimalPlaces = 5;
 			this.BonusBossDmg_B.Increment = new decimal(new int[] {
             1,
             0,
@@ -1000,9 +977,11 @@
 			this.BonusBossDmg_B.Name = "BonusBossDmg_B";
 			this.BonusBossDmg_B.Size = new System.Drawing.Size(84, 20);
 			this.BonusBossDmg_B.TabIndex = 113;
+			this.BonusBossDmg_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BonusBossDmg_A
 			// 
+			this.BonusBossDmg_A.DecimalPlaces = 5;
 			this.BonusBossDmg_A.Increment = new decimal(new int[] {
             1,
             0,
@@ -1016,7 +995,9 @@
             262144});
 			this.BonusBossDmg_A.Name = "BonusBossDmg_A";
 			this.BonusBossDmg_A.Size = new System.Drawing.Size(85, 20);
-			this.BonusBossDmg_A.TabIndex = 112;
+			this.BonusBossDmg_A.TabIndex = 9;
+			this.BonusBossDmg_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.BonusBossDmg_A.Enter += new System.EventHandler(this.BonusBossDmg_A_Enter);
 			// 
 			// label11
 			// 
@@ -1029,6 +1010,7 @@
 			// 
 			// MiscDmgBonus_C
 			// 
+			this.MiscDmgBonus_C.DecimalPlaces = 5;
 			this.MiscDmgBonus_C.Increment = new decimal(new int[] {
             1,
             0,
@@ -1043,9 +1025,11 @@
 			this.MiscDmgBonus_C.Name = "MiscDmgBonus_C";
 			this.MiscDmgBonus_C.Size = new System.Drawing.Size(84, 20);
 			this.MiscDmgBonus_C.TabIndex = 110;
+			this.MiscDmgBonus_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// MiscDmgBonus_B
 			// 
+			this.MiscDmgBonus_B.DecimalPlaces = 5;
 			this.MiscDmgBonus_B.Increment = new decimal(new int[] {
             1,
             0,
@@ -1060,9 +1044,11 @@
 			this.MiscDmgBonus_B.Name = "MiscDmgBonus_B";
 			this.MiscDmgBonus_B.Size = new System.Drawing.Size(84, 20);
 			this.MiscDmgBonus_B.TabIndex = 109;
+			this.MiscDmgBonus_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// MiscDmgBonus_A
 			// 
+			this.MiscDmgBonus_A.DecimalPlaces = 5;
 			this.MiscDmgBonus_A.Increment = new decimal(new int[] {
             1,
             0,
@@ -1076,7 +1062,9 @@
             262144});
 			this.MiscDmgBonus_A.Name = "MiscDmgBonus_A";
 			this.MiscDmgBonus_A.Size = new System.Drawing.Size(85, 20);
-			this.MiscDmgBonus_A.TabIndex = 108;
+			this.MiscDmgBonus_A.TabIndex = 8;
+			this.MiscDmgBonus_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.MiscDmgBonus_A.Enter += new System.EventHandler(this.MiscDmgBonus_A_Enter);
 			// 
 			// label10
 			// 
@@ -1170,6 +1158,7 @@
 			// 
 			// CritDmg_C
 			// 
+			this.CritDmg_C.DecimalPlaces = 5;
 			this.CritDmg_C.Increment = new decimal(new int[] {
             1,
             0,
@@ -1177,16 +1166,18 @@
             131072});
 			this.CritDmg_C.Location = new System.Drawing.Point(462, 242);
 			this.CritDmg_C.Maximum = new decimal(new int[] {
-            9999,
+            2,
             0,
             0,
-            262144});
+            0});
 			this.CritDmg_C.Name = "CritDmg_C";
 			this.CritDmg_C.Size = new System.Drawing.Size(84, 20);
 			this.CritDmg_C.TabIndex = 97;
+			this.CritDmg_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// CritDmg_B
 			// 
+			this.CritDmg_B.DecimalPlaces = 5;
 			this.CritDmg_B.Increment = new decimal(new int[] {
             1,
             0,
@@ -1194,16 +1185,18 @@
             131072});
 			this.CritDmg_B.Location = new System.Drawing.Point(349, 242);
 			this.CritDmg_B.Maximum = new decimal(new int[] {
-            9999,
+            2,
             0,
             0,
-            262144});
+            0});
 			this.CritDmg_B.Name = "CritDmg_B";
 			this.CritDmg_B.Size = new System.Drawing.Size(84, 20);
 			this.CritDmg_B.TabIndex = 96;
+			this.CritDmg_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// CritDmg_A
 			// 
+			this.CritDmg_A.DecimalPlaces = 5;
 			this.CritDmg_A.Increment = new decimal(new int[] {
             1,
             0,
@@ -1211,16 +1204,19 @@
             131072});
 			this.CritDmg_A.Location = new System.Drawing.Point(235, 242);
 			this.CritDmg_A.Maximum = new decimal(new int[] {
-            9999,
+            2,
             0,
             0,
-            262144});
+            0});
 			this.CritDmg_A.Name = "CritDmg_A";
 			this.CritDmg_A.Size = new System.Drawing.Size(85, 20);
-			this.CritDmg_A.TabIndex = 95;
+			this.CritDmg_A.TabIndex = 7;
+			this.CritDmg_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.CritDmg_A.Enter += new System.EventHandler(this.CritDmg_A_Enter);
 			// 
 			// CritRate_C
 			// 
+			this.CritRate_C.DecimalPlaces = 5;
 			this.CritRate_C.Increment = new decimal(new int[] {
             1,
             0,
@@ -1235,9 +1231,11 @@
 			this.CritRate_C.Name = "CritRate_C";
 			this.CritRate_C.Size = new System.Drawing.Size(84, 20);
 			this.CritRate_C.TabIndex = 94;
+			this.CritRate_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// CritRate_B
 			// 
+			this.CritRate_B.DecimalPlaces = 5;
 			this.CritRate_B.Increment = new decimal(new int[] {
             1,
             0,
@@ -1252,9 +1250,11 @@
 			this.CritRate_B.Name = "CritRate_B";
 			this.CritRate_B.Size = new System.Drawing.Size(84, 20);
 			this.CritRate_B.TabIndex = 93;
+			this.CritRate_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// CritRate_A
 			// 
+			this.CritRate_A.DecimalPlaces = 5;
 			this.CritRate_A.Increment = new decimal(new int[] {
             1,
             0,
@@ -1268,10 +1268,13 @@
             262144});
 			this.CritRate_A.Name = "CritRate_A";
 			this.CritRate_A.Size = new System.Drawing.Size(85, 20);
-			this.CritRate_A.TabIndex = 92;
+			this.CritRate_A.TabIndex = 6;
+			this.CritRate_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.CritRate_A.Enter += new System.EventHandler(this.CritRate_A_Enter);
 			// 
 			// Piercing_C
 			// 
+			this.Piercing_C.DecimalPlaces = 5;
 			this.Piercing_C.Increment = new decimal(new int[] {
             1,
             0,
@@ -1286,9 +1289,11 @@
 			this.Piercing_C.Name = "Piercing_C";
 			this.Piercing_C.Size = new System.Drawing.Size(84, 20);
 			this.Piercing_C.TabIndex = 91;
+			this.Piercing_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// Piercing_B
 			// 
+			this.Piercing_B.DecimalPlaces = 5;
 			this.Piercing_B.Increment = new decimal(new int[] {
             1,
             0,
@@ -1303,9 +1308,11 @@
 			this.Piercing_B.Name = "Piercing_B";
 			this.Piercing_B.Size = new System.Drawing.Size(84, 20);
 			this.Piercing_B.TabIndex = 90;
+			this.Piercing_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// Piercing_A
 			// 
+			this.Piercing_A.DecimalPlaces = 5;
 			this.Piercing_A.Increment = new decimal(new int[] {
             1,
             0,
@@ -1319,73 +1326,142 @@
             262144});
 			this.Piercing_A.Name = "Piercing_A";
 			this.Piercing_A.Size = new System.Drawing.Size(85, 20);
-			this.Piercing_A.TabIndex = 89;
+			this.Piercing_A.TabIndex = 5;
+			this.Piercing_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.Piercing_A.Enter += new System.EventHandler(this.Piercing_A_Enter);
 			// 
 			// BasePhysMagicAtck_C
 			// 
+			this.BasePhysMagicAtck_C.DecimalPlaces = 5;
 			this.BasePhysMagicAtck_C.Location = new System.Drawing.Point(462, 164);
+			this.BasePhysMagicAtck_C.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BasePhysMagicAtck_C.Name = "BasePhysMagicAtck_C";
 			this.BasePhysMagicAtck_C.Size = new System.Drawing.Size(84, 20);
 			this.BasePhysMagicAtck_C.TabIndex = 88;
+			this.BasePhysMagicAtck_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BasePhysMagicAtck_B
 			// 
+			this.BasePhysMagicAtck_B.DecimalPlaces = 5;
 			this.BasePhysMagicAtck_B.Location = new System.Drawing.Point(349, 164);
+			this.BasePhysMagicAtck_B.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BasePhysMagicAtck_B.Name = "BasePhysMagicAtck_B";
 			this.BasePhysMagicAtck_B.Size = new System.Drawing.Size(84, 20);
 			this.BasePhysMagicAtck_B.TabIndex = 87;
+			this.BasePhysMagicAtck_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BasePhysMagicAtck_A
 			// 
+			this.BasePhysMagicAtck_A.DecimalPlaces = 5;
 			this.BasePhysMagicAtck_A.Location = new System.Drawing.Point(235, 164);
+			this.BasePhysMagicAtck_A.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BasePhysMagicAtck_A.Name = "BasePhysMagicAtck_A";
 			this.BasePhysMagicAtck_A.Size = new System.Drawing.Size(85, 20);
-			this.BasePhysMagicAtck_A.TabIndex = 86;
+			this.BasePhysMagicAtck_A.TabIndex = 4;
+			this.BasePhysMagicAtck_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.BasePhysMagicAtck_A.Enter += new System.EventHandler(this.BasePhysMagicAtck_A_Enter);
 			// 
 			// PhysMagicAtck_C
 			// 
+			this.PhysMagicAtck_C.DecimalPlaces = 5;
 			this.PhysMagicAtck_C.Location = new System.Drawing.Point(462, 138);
+			this.PhysMagicAtck_C.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.PhysMagicAtck_C.Name = "PhysMagicAtck_C";
 			this.PhysMagicAtck_C.Size = new System.Drawing.Size(84, 20);
 			this.PhysMagicAtck_C.TabIndex = 85;
+			this.PhysMagicAtck_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// PhysMagicAtck_B
 			// 
+			this.PhysMagicAtck_B.DecimalPlaces = 5;
 			this.PhysMagicAtck_B.Location = new System.Drawing.Point(349, 138);
+			this.PhysMagicAtck_B.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.PhysMagicAtck_B.Name = "PhysMagicAtck_B";
 			this.PhysMagicAtck_B.Size = new System.Drawing.Size(84, 20);
 			this.PhysMagicAtck_B.TabIndex = 84;
+			this.PhysMagicAtck_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// PhysMagicAtck_A
 			// 
+			this.PhysMagicAtck_A.DecimalPlaces = 5;
 			this.PhysMagicAtck_A.Location = new System.Drawing.Point(235, 138);
+			this.PhysMagicAtck_A.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.PhysMagicAtck_A.Name = "PhysMagicAtck_A";
 			this.PhysMagicAtck_A.Size = new System.Drawing.Size(85, 20);
-			this.PhysMagicAtck_A.TabIndex = 83;
+			this.PhysMagicAtck_A.TabIndex = 3;
+			this.PhysMagicAtck_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.PhysMagicAtck_A.Enter += new System.EventHandler(this.PhysMagicAtck_A_Enter);
 			// 
 			// BonusAtck_C
 			// 
+			this.BonusAtck_C.DecimalPlaces = 5;
 			this.BonusAtck_C.Location = new System.Drawing.Point(462, 112);
+			this.BonusAtck_C.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BonusAtck_C.Name = "BonusAtck_C";
 			this.BonusAtck_C.Size = new System.Drawing.Size(84, 20);
 			this.BonusAtck_C.TabIndex = 82;
+			this.BonusAtck_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BonusAtck_B
 			// 
+			this.BonusAtck_B.DecimalPlaces = 5;
 			this.BonusAtck_B.Location = new System.Drawing.Point(349, 112);
+			this.BonusAtck_B.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BonusAtck_B.Name = "BonusAtck_B";
 			this.BonusAtck_B.Size = new System.Drawing.Size(84, 20);
 			this.BonusAtck_B.TabIndex = 81;
+			this.BonusAtck_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// BonusAtck_A
 			// 
+			this.BonusAtck_A.DecimalPlaces = 5;
 			this.BonusAtck_A.Location = new System.Drawing.Point(235, 112);
+			this.BonusAtck_A.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
 			this.BonusAtck_A.Name = "BonusAtck_A";
 			this.BonusAtck_A.Size = new System.Drawing.Size(85, 20);
-			this.BonusAtck_A.TabIndex = 80;
+			this.BonusAtck_A.TabIndex = 2;
+			this.BonusAtck_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.BonusAtck_A.Enter += new System.EventHandler(this.BonusAtck_A_Enter);
 			// 
 			// WeapMaxAtck_C
 			// 
+			this.WeapMaxAtck_C.DecimalPlaces = 5;
 			this.WeapMaxAtck_C.Increment = new decimal(new int[] {
             100,
             0,
@@ -1393,16 +1469,18 @@
             0});
 			this.WeapMaxAtck_C.Location = new System.Drawing.Point(462, 86);
 			this.WeapMaxAtck_C.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMaxAtck_C.Name = "WeapMaxAtck_C";
 			this.WeapMaxAtck_C.Size = new System.Drawing.Size(84, 20);
 			this.WeapMaxAtck_C.TabIndex = 79;
+			this.WeapMaxAtck_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// WeapMaxAtck_B
 			// 
+			this.WeapMaxAtck_B.DecimalPlaces = 5;
 			this.WeapMaxAtck_B.Increment = new decimal(new int[] {
             100,
             0,
@@ -1410,16 +1488,18 @@
             0});
 			this.WeapMaxAtck_B.Location = new System.Drawing.Point(349, 86);
 			this.WeapMaxAtck_B.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMaxAtck_B.Name = "WeapMaxAtck_B";
 			this.WeapMaxAtck_B.Size = new System.Drawing.Size(84, 20);
 			this.WeapMaxAtck_B.TabIndex = 78;
+			this.WeapMaxAtck_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// WeapMaxAtck_A
 			// 
+			this.WeapMaxAtck_A.DecimalPlaces = 5;
 			this.WeapMaxAtck_A.Increment = new decimal(new int[] {
             100,
             0,
@@ -1427,16 +1507,19 @@
             0});
 			this.WeapMaxAtck_A.Location = new System.Drawing.Point(235, 86);
 			this.WeapMaxAtck_A.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMaxAtck_A.Name = "WeapMaxAtck_A";
 			this.WeapMaxAtck_A.Size = new System.Drawing.Size(85, 20);
-			this.WeapMaxAtck_A.TabIndex = 77;
+			this.WeapMaxAtck_A.TabIndex = 1;
+			this.WeapMaxAtck_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.WeapMaxAtck_A.Enter += new System.EventHandler(this.WeapMaxAtck_A_Enter);
 			// 
 			// WeapMinAtck_C
 			// 
+			this.WeapMinAtck_C.DecimalPlaces = 5;
 			this.WeapMinAtck_C.Increment = new decimal(new int[] {
             100,
             0,
@@ -1444,16 +1527,18 @@
             0});
 			this.WeapMinAtck_C.Location = new System.Drawing.Point(462, 60);
 			this.WeapMinAtck_C.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMinAtck_C.Name = "WeapMinAtck_C";
 			this.WeapMinAtck_C.Size = new System.Drawing.Size(84, 20);
 			this.WeapMinAtck_C.TabIndex = 76;
+			this.WeapMinAtck_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// WeapMinAtck_B
 			// 
+			this.WeapMinAtck_B.DecimalPlaces = 5;
 			this.WeapMinAtck_B.Increment = new decimal(new int[] {
             100,
             0,
@@ -1461,16 +1546,18 @@
             0});
 			this.WeapMinAtck_B.Location = new System.Drawing.Point(349, 60);
 			this.WeapMinAtck_B.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMinAtck_B.Name = "WeapMinAtck_B";
 			this.WeapMinAtck_B.Size = new System.Drawing.Size(84, 20);
 			this.WeapMinAtck_B.TabIndex = 75;
+			this.WeapMinAtck_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// WeapMinAtck_A
 			// 
+			this.WeapMinAtck_A.DecimalPlaces = 5;
 			this.WeapMinAtck_A.Increment = new decimal(new int[] {
             100,
             0,
@@ -1478,13 +1565,15 @@
             0});
 			this.WeapMinAtck_A.Location = new System.Drawing.Point(235, 60);
 			this.WeapMinAtck_A.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
 			this.WeapMinAtck_A.Name = "WeapMinAtck_A";
 			this.WeapMinAtck_A.Size = new System.Drawing.Size(85, 20);
-			this.WeapMinAtck_A.TabIndex = 74;
+			this.WeapMinAtck_A.TabIndex = 0;
+			this.WeapMinAtck_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.WeapMinAtck_A.Enter += new System.EventHandler(this.WeapMinAtck_A_Enter);
 			// 
 			// label3
 			// 
@@ -1515,24 +1604,83 @@
 			// 
 			// CrowCoef_C
 			// 
+			this.CrowCoef_C.DecimalPlaces = 5;
+			this.CrowCoef_C.Enabled = false;
+			this.CrowCoef_C.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.CrowCoef_C.Location = new System.Drawing.Point(462, 34);
 			this.CrowCoef_C.Name = "CrowCoef_C";
+			this.CrowCoef_C.ReadOnly = true;
 			this.CrowCoef_C.Size = new System.Drawing.Size(84, 20);
 			this.CrowCoef_C.TabIndex = 70;
+			this.CrowCoef_C.TabStop = false;
+			this.CrowCoef_C.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.CrowCoef_C.Value = new decimal(new int[] {
+            155572,
+            0,
+            0,
+            327680});
 			// 
 			// CrowCoef_B
 			// 
+			this.CrowCoef_B.DecimalPlaces = 5;
+			this.CrowCoef_B.Enabled = false;
+			this.CrowCoef_B.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.CrowCoef_B.Location = new System.Drawing.Point(349, 34);
 			this.CrowCoef_B.Name = "CrowCoef_B";
+			this.CrowCoef_B.ReadOnly = true;
 			this.CrowCoef_B.Size = new System.Drawing.Size(84, 20);
 			this.CrowCoef_B.TabIndex = 69;
+			this.CrowCoef_B.TabStop = false;
+			this.CrowCoef_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.CrowCoef_B.Value = new decimal(new int[] {
+            155572,
+            0,
+            0,
+            327680});
 			// 
 			// CrowCoef_A
 			// 
+			this.CrowCoef_A.DecimalPlaces = 5;
+			this.CrowCoef_A.Enabled = false;
+			this.CrowCoef_A.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.CrowCoef_A.Location = new System.Drawing.Point(235, 34);
 			this.CrowCoef_A.Name = "CrowCoef_A";
+			this.CrowCoef_A.ReadOnly = true;
 			this.CrowCoef_A.Size = new System.Drawing.Size(85, 20);
 			this.CrowCoef_A.TabIndex = 68;
+			this.CrowCoef_A.TabStop = false;
+			this.CrowCoef_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.CrowCoef_A.Value = new decimal(new int[] {
+            155572,
+            0,
+            0,
+            327680});
+			// 
+			// Calculate_Button
+			// 
+			this.Calculate_Button.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.Calculate_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.Calculate_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+			this.Calculate_Button.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.Calculate_Button.Location = new System.Drawing.Point(331, 391);
+			this.Calculate_Button.Name = "Calculate_Button";
+			this.Calculate_Button.Size = new System.Drawing.Size(120, 23);
+			this.Calculate_Button.TabIndex = 135;
+			this.Calculate_Button.Text = "Calculate";
+			this.Calculate_Button.UseVisualStyleBackColor = false;
+			this.Calculate_Button.Click += new System.EventHandler(this.Calculate_Button_Click);
 			// 
 			// Form1
 			// 
@@ -1558,9 +1706,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_C)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_B)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.SkillPercent_A)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_C)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_B)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.ClassCoef_A)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_C)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_B)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DmgTotalBonus_A)).EndInit();
@@ -1647,7 +1792,6 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
@@ -1685,9 +1829,6 @@
 		private System.Windows.Forms.NumericUpDown SkillPercent_C;
 		private System.Windows.Forms.NumericUpDown SkillPercent_B;
 		private System.Windows.Forms.NumericUpDown SkillPercent_A;
-		private System.Windows.Forms.NumericUpDown ClassCoef_C;
-		private System.Windows.Forms.NumericUpDown ClassCoef_B;
-		private System.Windows.Forms.NumericUpDown ClassCoef_A;
 		private System.Windows.Forms.NumericUpDown DmgTotalBonus_C;
 		private System.Windows.Forms.NumericUpDown DmgTotalBonus_B;
 		private System.Windows.Forms.NumericUpDown DmgTotalBonus_A;
@@ -1724,6 +1865,7 @@
 		private System.Windows.Forms.NumericUpDown CrowCoef_C;
 		private System.Windows.Forms.NumericUpDown CrowCoef_B;
 		private System.Windows.Forms.NumericUpDown CrowCoef_A;
+		private System.Windows.Forms.Button Calculate_Button;
 	}
 }
 
